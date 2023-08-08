@@ -6,6 +6,10 @@ const port = 5000;  // generally it's 80
 app.use('/', require('./routes/index'));
 
 
+// setup the view engine
+app.set('view engine', 'ejs');
+app.set('views', './views');
+
 
 
 
