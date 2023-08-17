@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title  %></title>
-</head>
-<body>
-    <h1>This is the home page of <%= title  %></h1>
-</body>
-</html>
+<link rel="stylesheet" href="/css/home.css">
+
+<h1>This is the home page of <%= title %>
+</h1>
+<form action="/auth/signup" method="GET" id="signupForm">
+    <button type="submit" id="toSignUp">Become one with us. Join-in</button>
+</form>
+
+
+<script src="/js/home.js"></script>

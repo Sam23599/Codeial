@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title  %></title>
-</head>
-<body>
-    <h1>We are at the <%= user %> user's page</h1>
-</body>
-</html>
+<link rel="stylesheet" href="/css/user">
+
+<h1>
+    We are at the <%= user.name %> user's page
+</h1>
+
+<p>
+    Name : <%= user.name %>
+</p>
+<p>
+    Email : <%= user.email %>
+</p>
+
+<form action="/auth/signOut" method="get">
+    <button type="submit">Sign Out</button>
+</form>
