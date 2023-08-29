@@ -1,0 +1,40 @@
+header {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: #793FDF;
+    
+    #main-block {
+        margin: 0 1rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        div {
+            h1 {
+                margin: 5px;
+            }
+        }
+        #user-block {            
+            div {
+                margin: 5px;
+                line-height: 1.3rem;
+                display: block;
+                transition: .3s all ease-in-out;
+                a {
+                    color: #272829;
+                    font-size: 18px;
+                }
+            }
+            div:hover{
+                font-size: 20px;
+                box-shadow: 0 0 25px 3px #322653;
+                border-radius: 10%;
+                padding: 4px;
+            }
+
+            .user-logged-in {
+                display: inline-block;
+            }
+        }
+    }
+  }
