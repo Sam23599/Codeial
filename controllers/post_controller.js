@@ -13,6 +13,4 @@ module.exports.create_post = async function (req, res) {
         console.log('error in creating a post');
         return;
     }
-
-    return res.end('<p>Posted</p>');
 }

@@ -6,24 +6,26 @@
 
 <section id="feed-posts">
     <h4>Posts</h4>
-    <form action="/users/create-post" id="new-post-form" method="post">
-        <textarea name="content" id="" placeholder="Type Here" cols="30" rows="3"></textarea>
-        <input type="submit" value="Post">
-    </form>
+    <% if(locals.user) { %>
+        <form action="/users/create-post" id="new-post-form" method="post">
+            <textarea name="content" id="" placeholder="Type Here" cols="30" rows="3"></textarea>
+            <input type="submit" value="Post">
+        </form>
+    <% } %>
 
-    <div id="posts-list">
-        <ul>
-            <% for(post of posts) { %>
-                <p>
-                    <li>
-                        <%= post.content %>
-                    </li>
-                    <%= post.user.name %>
-                </p>
-            <% } %>
-        </ul>
+            <div id="posts-list">
+                <ul>
+                    <% for(post of posts) { %>
+                        <p>
+                            <li>
+                                <%= post.content %>
+                            </li>
+                            <%= post.user.name %>
+                        </p>
+                        <% } %>
+                </ul>
 
-    </div>
+            </div>
 </section>
 
 <script src="/js/home.js"></script>

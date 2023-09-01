@@ -8,7 +8,7 @@ module.exports.home = async function(req, res){
             posts: posts
         })
     } catch (error) {
-        console.log("unknow err on showing posts on home page");
+        console.log("unknow error on showing posts on home page");
     }
     
     return res.render('home', {
