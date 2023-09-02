@@ -2,7 +2,12 @@ const Post = require('../models/post');
 
 module.exports.home = async function(req, res){
     try {
-        const posts = await Post.find({}).populate('user');
+        const posts = await Post.find({}).populate('user').populate({
+            path: 'comments',
+            populate: {
+                path: 'user'
+            }
+        });
         return res.render('home', {
             title: 'CodeBook',
             posts: posts
@@ -14,5 +19,4 @@ module.exports.home = async function(req, res){
     return res.render('home', {
         title: "CodeBook"
     });
-    // return res.end('<h1>Express is up</h1>')
 }
