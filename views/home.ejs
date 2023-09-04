@@ -1,57 +1,67 @@
 <link rel="stylesheet" href="/css/home.css">
 
-<h1>This is the home page of <%= title %>
+<h1 id="head-h1">This is the home page of <%= title %>
 </h1>
 
 
 <section id="feed-posts">
     <h4>Posts</h4>
-    <% if(locals.user) { %>
-        <form action="/users/create-post" id="new-post-form" method="post">
-            <textarea name="content" id="" placeholder="Type Here" cols="30" rows="3" required></textarea>
-            <input type="submit" value="Post">
-        </form>
-    <% } %>
-
-            <div id="posts-list">
-                <ul>
-                    <% for(post of posts) { %>
-                        <p>
-                            <li>
+    <div>
+        <% if(locals.user) { %>
+            <form action="/users/create-post" id="new-post-form" method="post">
+                <textarea name="content" id="comment-entered" placeholder="Type Here" cols="40" rows="3" required></textarea>
+                <input type="submit" value="Post" id="submit-form-button">
+            </form>
+        <% } %>
+    
+        <div id="posts-list">
+            <ul>
+                <% for(post of posts) { %>
+                    <div id="each-post">
+                        <li>
+                            <span class="post-content">
                                 <%= post.content %>
-                            </li>
-                            <%= post.user.name %>
-                        </p>
+                            </span>
+                            <span class="post-user">
+                                <%= post.user.name %>
+                            </span>
+                        </li>
                         <div class="post-comments">
                             <% if(locals.user){ %>
                                 <form action="/comments/create" method="post">
-
-                                    <input type="text" name="content" placeholder="Type your comment" required>
+        
+                                    <input type="text" name="content" id="comment-reply" placeholder="Type your comment" required>
                                     <input type="hidden" name="postID" value="<%= post._id %>">
-                                    <input type="submit" value="Add Comment">
+                                    <input type="submit" value="Reply" id="comment-reply-submit">
                                 </form>
-
+        
                                 <% } %>
                         </div>
                         <div class="post-comments-list">
+                            <!-- Not sure how the next line 'ul' works or does that even work? with that #id -->
                             <ul id="post-comments-<%= post._id %>">
                                 <% for(comment of post.comments) { %>
-                                    <p>
-                                        <%= comment.content %>
-                                        <br>
-                                        <small>
-                                            <%= comment.user.name %>
-                                        </small>
+                                        <li id="comment-tree">
+                                            <span class="post-content" >
+                                                <%= comment.content %>
+                                            </span>
+                                            <span class="post-user">
+                                               By: <%= comment.user.name %>
+                                            </span>
+                                        </li>
+                                       
                                         <!-- TODO: Add a delete button -->
-                                    </p>
-                                    <% } %>
+                                <% } %>
                             </ul>
-
+        
                         </div>
-                        <% } %>
-                </ul>
 
-            </div>
+                    </div>
+                <% } %>
+            </ul>
+    
+        </div>
+    </div>
 </section>
 
 <script src="/js/home.js"></script>

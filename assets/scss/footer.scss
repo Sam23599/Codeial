@@ -1,12 +1,13 @@
 footer {
     background-color: #FFFD8C;
-    div {
-        margin: 1rem;
-        padding: 1rem;
-
-    }
-
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    
     #main-block{
-        
+        margin: 0 1rem;
+        padding: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }

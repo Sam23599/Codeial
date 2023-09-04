@@ -1,0 +1,129 @@
+#head-h1 {
+    background-color: #DFCCFB;
+    margin: 0;
+    padding: 10px;
+}
+
+#feed-posts {
+    background-color: #DFCCFB;
+    padding: 10px 20%;
+
+    h4 {
+        margin: 0 0 15px;
+    }
+
+    #new-post-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        #comment-entered {
+            border-radius: 12px;
+            border: 1px solid #836096;
+            resize: none;
+            padding: 10px;
+            outline: none !important;
+            flex: 4;
+        }
+
+        #comment-entered:hover {
+            box-shadow: 1px 1px 5px 1px #836096;
+        }
+
+        #submit-form-button {
+            background-color: #BEADFA;
+            border: none;
+            font-size: 16px;
+            border-radius: 14px;
+            padding: 7px;
+            margin: 10px;
+            flex: 1;
+        }
+
+        #submit-form-button:hover {
+            border: 1px solid #836096;
+            background-color: #F4EEEE;
+            cursor: pointer;
+        }
+    }
+
+    #posts-list {
+        text-align: left;
+
+        ul {
+            padding: 0;
+        }
+
+        #each-post {
+            background-color: #A8A4CE;
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin: 0 0 10px;
+
+            li {
+                background-color: #7A86B6;
+                border-radius: 7px;
+                padding: 5px;
+                margin-bottom: 5px;
+            }
+
+            span {
+                display: block;
+            }
+
+            .post-content {
+                padding-left: 8px;
+            }
+
+            .post-user {
+                text-align: right;
+                padding-right: 15px;
+            }
+
+            .post-comments {
+                padding-left: 10px;
+                display: flex;
+                margin: 0 0 12px 2px;
+                align-items: center;
+
+                // TO-DO: add styling to reply button
+                form {
+                    #comment-reply {
+                        border-radius: 8px;
+                        border: 1px solid #836096;
+                        padding: 5px;
+                        outline: none;
+                        margin: 3px;
+                    }
+
+                    #comment-reply-submit {
+                        border: none;
+                        border-radius: 9px;
+                        padding: 3px;
+                        margin: 5px;
+                    }
+                    #comment-reply-submit:hover{
+                        border: 0.1px solid #836096;
+                        background-color: rgba($color: #FEECE9, $alpha: 0.2);
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .post-comments-list {
+                background-color: rgba(227, 226, 195, 0.4);
+                border-radius: 6px;
+                padding: 1px 6%;
+                margin: 0 15px;
+
+                ul {
+                    padding: 10px 0;
+
+                    #comment-tree {
+                        background-color: rgba(240, 239, 226, 0.8);
+                    }
+                }
+            }
+        }
+    }
+}

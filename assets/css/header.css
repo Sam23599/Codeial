@@ -3,7 +3,8 @@ header {
   font-size: 16px;
   background-color: #793FDF; }
   header #main-block {
-    margin: 0 1rem 1rem;
+    margin: 0 1rem;
+    padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center; }
