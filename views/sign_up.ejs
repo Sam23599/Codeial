@@ -1,22 +1,40 @@
 <link rel="stylesheet" href="/css/sign_up.css">
 
-<h1>New User? Sign-up and Create your new account with us.</h1>
+<div id="contianer">
+    <h1>New Here? Sign-up and Become one with us.</h1>
 
-<form action="/auth/signup" method="POST" id="signup_form">
+    <div id="signup-form-div">
+        <form action="/auth/signup" method="POST" id="signup_form">
 
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" placeholder="Enter Your Name" required>
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" placeholder="Enter Your Email" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" placeholder="Enter Password" required>
-    <label for="confirm_password">Confirm Password</label>
-    <input type="password" name="confirm_password" id="confirm_password" required>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter Your Name" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter Your Email" required>
+            </div>
+            <div>
+                <!-- just for next line -->
+                <br>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter Password" required>
+            </div>
+            <div>
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+            </div>
 
-    <button type="button" id="singUpButton">Sign-Up</button>
-    <button type="button" id="logInButton">Already a User? Login then</button>
+            <div>
+                <button type="button" id="singUpButton">Sign-Up</button>
+                <button type="button" id="logInButton">Already a User? Login then</button>
+            </div>
+        </form>
+    </div>
+</div>
 
-</form>
 
 
 <script src="/js/sign_up.js"></script>
