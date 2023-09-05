@@ -18,12 +18,10 @@
         left: 10%;
 
         #signup_form {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
 
             div {
+                display: inline-block;
+                
                 input {
                     border-radius: 8px;
                     border: 1px solid #836096;

@@ -13,11 +13,8 @@
     width: 77%;
     position: relative;
     left: 10%; }
-    #contianer #signup-form-div #signup_form {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center; }
+    #contianer #signup-form-div #signup_form div {
+      display: inline-block; }
       #contianer #signup-form-div #signup_form div input {
         border-radius: 8px;
         border: 1px solid #836096;

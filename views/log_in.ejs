@@ -1,19 +1,29 @@
 <link rel="stylesheet" href="/css/log_in.css">
 
-<h1>Cool! You have successfully signed up with us.</h1>
-<h1>Log-In now to view your profile.</h1>
+<div id="contianer">
+    <h1>Log-In to view your profile.</h1>
 
-<form action="/auth/login" method="post" id="signup_form">
+    <div id="form-div">
+        <form action="/auth/login" method="post" id="login_form">
+            <div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Enter Your Email">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter Password">    
+                </div>
+                </div>
+            <div>
+                <button type="submit" id="loginButton">Login</button>
+                <button type="button" id="signUpButton">Not a User? Sign-up then</button>
+            </div>
+        </form>
+    </div>
 
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" placeholder="Enter Your Email">
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" placeholder="Enter Password">
 
-    <button type="submit" id="loginButton">Login</button>
-    <button type="button" id="signUpButton">Not a User? Sign-up then</button>
-
-</form>
+</div>
 
 
 <script src="/js/log_in.js"></script>

@@ -6,27 +6,27 @@
     <div id="signup-form-div">
         <form action="/auth/signup" method="POST" id="signup_form">
 
-            <div>
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="Enter Your Name" required>
+            <div id="form-data">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="Enter Your Name" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Enter Your Email" required>
+                </div>
             </div>
             <div>
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Enter Your Email" required>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter Password" required>
+                </div>
+                <div>
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password"
+                        required>
+                </div>
             </div>
-            <div>
-                <!-- just for next line -->
-                <br>
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Enter Password" required>
-            </div>
-            <div>
-                <label for="confirm_password">Confirm Password</label>
-                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
-            </div>
-
             <div>
                 <button type="button" id="singUpButton">Sign-Up</button>
                 <button type="button" id="logInButton">Already a User? Login then</button>
