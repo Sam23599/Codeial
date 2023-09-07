@@ -47,13 +47,12 @@
         border-radius: 7px;
         padding: 5px;
         margin-bottom: 5px; }
-      #feed-posts #posts-list #each-post span {
-        display: block; }
       #feed-posts #posts-list #each-post .post-content {
         padding-left: 8px; }
       #feed-posts #posts-list #each-post .post-user {
         text-align: right;
-        padding-right: 15px; }
+        padding-right: 15px;
+        display: block; }
       #feed-posts #posts-list #each-post .post-comments {
         padding-left: 10px;
         display: flex;

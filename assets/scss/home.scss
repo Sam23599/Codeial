@@ -67,10 +67,6 @@
                 margin-bottom: 5px;
             }
 
-            span {
-                display: block;
-            }
-
             .post-content {
                 padding-left: 8px;
             }
@@ -78,6 +74,7 @@
             .post-user {
                 text-align: right;
                 padding-right: 15px;
+                display: block;
             }
 
             .post-comments {
