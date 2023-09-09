@@ -11,7 +11,7 @@
         <div id="user-block">
             <% if(locals.user) {%>
                 <div class="user-logged-in">
-                    <a href="/users/profile">Profile: <%= user.name %></a>
+                    <a href="/users/profile/<%= user._id %>">Profile: <%= user.name %></a>
                 </div>
                 <div class="user-logged-in">
                     <a href="/auth/signout">Sign Out</a>
