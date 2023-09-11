@@ -75,14 +75,15 @@ module.exports.logIn = async function (req, res) {
     }
     else {
         console.log('Logged in successfully');
-        res.cookie('user_id', user._id); // Corrected way to set the cookie
+        req.flash('success', 'Logged in Successfully');
+        res.cookie('user_id', user._id); // Set the cookie
         return res.redirect('/');
     }
 }
 
 module.exports.signOut = function (req, res) {
     console.log('Signing out');
-
+    
     // clear logged cookie 'user_id'
     const cookies = req.cookies;
     Object.keys(cookies).forEach(cookieName => {
@@ -99,5 +100,7 @@ module.exports.signOut = function (req, res) {
         }
     });
 
+    // for some reasons this flash is not wokring in signout, but wokring fine in login
+    req.flash('success', 'Signed out');
     return res.redirect('/');
 }

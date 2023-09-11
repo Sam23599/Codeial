@@ -5,8 +5,7 @@
 
 #container {
   display: flex;
-  background-color: #DFCCFB;
-  height: 100vh; }
+  background-color: #DFCCFB; }
   #container #feed-posts {
     padding: 6%;
     flex: 7; }

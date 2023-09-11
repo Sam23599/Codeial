@@ -25,6 +25,7 @@ module.exports.update = async function(req, res){
     if(req.user.id==req.params.id){
         try {
             const user = await User.findByIdAndUpdate(req.params.id, req.body);
+            req.flash('success', 'Profile Updated Successfully');
             return res.redirect('back');
         } catch (error) {
             console.log('error updating user in user_controller: update');

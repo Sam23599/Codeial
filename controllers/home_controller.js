@@ -10,8 +10,8 @@ module.exports.home = async function (req, res) {
                 populate: {
                     path: 'user'
                 }
-            })
-            .exec();
+            });
+            
         const users = await User.find({});
         return res.render('home', {
             title: 'CodeBook',
@@ -21,9 +21,7 @@ module.exports.home = async function (req, res) {
 
     } catch (error) {
         console.log("unknow error on showing posts on home page");
+        return;
     }
 
-    return res.render('home', {
-        title: "CodeBook"
-    });
 }

@@ -5,15 +5,12 @@
 </h1>
 
 <div id="container">
-
     <section id="feed-posts">
         <h4>Posts</h4>
         <div>
             <% if(locals.user) { %>
                 <form action="/users/create-post" id="new-post-form" method="post">
-                    <textarea name="content" id="comment-entered" placeholder="Type Here" cols="40" rows="3"
-                        required>
-                    </textarea>
+                    <textarea name="content" id="comment-entered" placeholder="Type Here" cols="40" rows="3" required></textarea>
                     <input type="submit" value="Post" id="submit-form-button">
                 </form>
                 <% } %>
