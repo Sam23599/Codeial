@@ -33,11 +33,9 @@
         <!-- Show Comments List -->
         <div id="comments-list">
 
-            <!-- Not sure how the next line 'ul' works or does that even work, with that custom #id? 
-                So i am commenting it out for now. In case if u find out if it's needed, let me know-->
+            <!-- This 'ul' requires id for dynamically deleting a comment from DOM -->
             <ul id="post-comments-<%= post._id %>">
 
-            <!-- <ul> -->
                 <% for(comment of post.comments) { %>
                     <div id="comment-<%= comment.id %>">
                         <li >

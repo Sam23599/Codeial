@@ -83,7 +83,7 @@ const creatComment = function(){
                 console.log("comment data", data);
                 let newComment = newCommentDom(data.data.comment);
                 $(`#post-comments-${data.data.comment.post}`).append(newComment);
-                deleteComment($('.comment-delete-button'), newComment);
+                deleteComment($('.comment-delete-button', newComment));
             },
             error: (error)=>{
                 console.log(error.responseText);
@@ -94,18 +94,18 @@ const creatComment = function(){
 
 // method to add a comment in DOM
 const newCommentDom = function(comment){
-    return $(`<div id="comment-${ comment._id }">
+    return $(`<div id="comment-${comment._id}">
                 <li>
                     <div style="display: flex; justify-content: space-between;">
                         <span class="post-content">
-                        ${ comment.content }
+                        ${comment.content}
                         </span>
                             <span style="position: relative; right: 5px;">
-                                <a class="comment-delete-button" href="/comments/destroy/${comment._id }"><i class="fa-solid fa-xmark"></i></a>
+                                <a class="comment-delete-button" href="/comments/destroy/${comment._id}"><i class="fa-solid fa-xmark"></i></a>
                             </span>
                     </div>
                     <span class="post-user">
-                        By: ${ comment.user.name }
+                        By: ${comment.user.name}
                     </span>
                 </li>
             </div>`);
@@ -114,6 +114,7 @@ const newCommentDom = function(comment){
 // method to delete a comment from DOM
 const deleteComment = function(deleteLink){
     $(deleteLink).click(function(e){
+        console.log($(deleteLink).prop('href'));
         e.preventDefault();
         $.ajax({
             type: 'get',

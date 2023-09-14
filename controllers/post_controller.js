@@ -7,8 +7,9 @@ module.exports.create_post = async function (req, res) {
             content : req.body.content,
             user : req.user._id 
         });
+
         if(req.xhr){
-            // Populate the user field and save the post
+            // Populate the user field with user-name and save the post
             await post.populate('user', 'name');
             await post.save();
 
