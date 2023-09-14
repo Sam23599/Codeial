@@ -5,9 +5,14 @@
 </h1>
 
 <div id="container">
+
+    <!-- Post and Comment section -->
     <section id="feed-posts">
         <h4>Posts</h4>
         <div>
+
+            
+            <!-- Create Post -->
             <% if(locals.user) { %>
                 <form action="/users/create-post" id="new-post-form" method="post">
                     <textarea name="content" id="comment-entered" placeholder="Type Here" cols="40" rows="3" required></textarea>
@@ -15,19 +20,23 @@
                 </form>
                 <% } %>
 
-                    <div id="posts-list">
-                        <ul>
-                            <% for(post of posts) { %>
 
-                                <%- include('_posts') %>
+                <!-- Show Posts List -->
+                <div id="posts-list">
+                    <ul>
+                        <% for(post of posts) { %>
 
-                                    <% } %>
-                        </ul>
+                            <%- include('_posts') %>
 
-                    </div>
+                        <% } %>
+                    </ul>
+
+                </div>
         </div>
     </section>
 
+
+    <!-- Show Users -->
     <section id="user-friends">
         <h4>Friends</h4>
         <% for( u of all_users ) { %>

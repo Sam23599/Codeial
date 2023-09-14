@@ -19,6 +19,21 @@ module.exports.create = async function (req, res) {
         postId.comments.push(comment);
         await postId.save();
 
+        console.log("comment xhr :", req.xhr);
+        if(req.xhr){
+            // Populate the user field and save the comment
+            await comment.populate('user', 'name');
+            await comment.save();
+            console.log("comment:",comment);
+            console.log("post", postId.comments);
+            return res.status(200).json({
+                data: {
+                    comment: comment,
+                },
+                message: "Comment added"
+            })
+        }
+
         console.log('Comment added');
         req.flash('success', 'Comment added');
         return res.redirect('/');
@@ -31,6 +46,17 @@ module.exports.create = async function (req, res) {
 module.exports.destroy = async function (req, res) {
     try {
         const comment = await Comment.findById(req.params.id);
+        
+        if(req.xhr){
+            console.log(comment);
+            return res.status(200).json({
+                data: {
+                    comment: comment,
+                    comment_id: req.params.id
+                },
+                message: "Comment deleted"
+            })
+        }
 
         if (!comment) {
             console.log('Comment not found');
