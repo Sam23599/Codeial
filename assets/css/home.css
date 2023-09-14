@@ -40,50 +40,50 @@
       text-align: left; }
       #container #feed-posts #posts-list ul {
         padding: 0; }
-      #container #feed-posts #posts-list #each-post {
+      #container #feed-posts #posts-list div[id^="post-"] {
         background-color: #A8A4CE;
         padding: 10px 12px;
         border-radius: 8px;
         margin: 0 0 10px; }
-        #container #feed-posts #posts-list #each-post li {
+        #container #feed-posts #posts-list div[id^="post-"] li {
           background-color: #7A86B6;
           border-radius: 7px;
           padding: 5px;
           margin-bottom: 5px; }
-        #container #feed-posts #posts-list #each-post .post-content {
+        #container #feed-posts #posts-list div[id^="post-"] .post-content {
           padding-left: 8px; }
-        #container #feed-posts #posts-list #each-post .post-user {
+        #container #feed-posts #posts-list div[id^="post-"] .post-user {
           text-align: right;
           padding-right: 15px;
           display: block; }
-        #container #feed-posts #posts-list #each-post .post-comments {
+        #container #feed-posts #posts-list div[id^="post-"] .post-comments {
           padding-left: 10px;
           display: flex;
           margin: 0 0 12px 2px;
           align-items: center; }
-          #container #feed-posts #posts-list #each-post .post-comments form #comment-reply {
+          #container #feed-posts #posts-list div[id^="post-"] .post-comments form #comment-reply {
             border-radius: 8px;
             border: 1px solid #836096;
             padding: 5px;
             outline: none;
             margin: 3px; }
-          #container #feed-posts #posts-list #each-post .post-comments form #comment-reply-submit {
+          #container #feed-posts #posts-list div[id^="post-"] .post-comments form #comment-reply-submit {
             border: none;
             border-radius: 9px;
             padding: 3px;
             margin: 5px; }
-          #container #feed-posts #posts-list #each-post .post-comments form #comment-reply-submit:hover {
+          #container #feed-posts #posts-list div[id^="post-"] .post-comments form #comment-reply-submit:hover {
             border: 0.1px solid #836096;
             background-color: rgba(254, 236, 233, 0.2);
             cursor: pointer; }
-        #container #feed-posts #posts-list #each-post .post-comments-list {
+        #container #feed-posts #posts-list div[id^="post-"] #comments-list {
           background-color: rgba(227, 226, 195, 0.4);
           border-radius: 6px;
           padding: 1px 6%;
           margin: 0 15px; }
-          #container #feed-posts #posts-list #each-post .post-comments-list ul {
+          #container #feed-posts #posts-list div[id^="post-"] #comments-list ul {
             padding: 10px 0; }
-            #container #feed-posts #posts-list #each-post .post-comments-list ul #comment-tree {
+            #container #feed-posts #posts-list div[id^="post-"] #comments-list ul div li {
               background-color: rgba(240, 239, 226, 0.8); }
   #container #user-friends {
     flex: 1;

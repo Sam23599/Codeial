@@ -2,12 +2,24 @@ const Post = require('../models/post');
 const Comment = require('../models/comment');
 
 module.exports.create_post = async function (req, res) {
-    console.log(req.user);
     try {
-        await Post.create({
+        const post = await Post.create({
             content : req.body.content,
             user : req.user._id 
         });
+
+        if(req.xhr){
+            // Populate the user field with user-name and save the post
+            await post.populate('user', 'name');
+            await post.save();
+
+            return res.status(200).json({
+                data:{
+                    post: post,
+                },
+                message: "Post created"
+            })
+        }
         console.log('post created');
         req.flash('success', 'Posted Successfully')
         return res.redirect('back');
@@ -22,7 +34,7 @@ module.exports.create_post = async function (req, res) {
 module.exports.destroy = async function(req, res){
     try {
         const post = await Post.findById(req.params.id);
-        
+
         if (!post) {
             console.log('Post not found');
             req.flash('error', 'Post does not exists')
@@ -39,6 +51,16 @@ module.exports.destroy = async function(req, res){
             Post.deleteOne({ _id: req.params.id }),
             Comment.deleteMany({ post: req.params.id }),
         ]);
+
+        if(req.xhr){
+            return res.status(200).json({
+                data:{
+                    post: post,
+                    post_id: req.params.id
+                },
+                message: "Post deleted"
+            })
+        }        
 
         req.flash('success', 'Post deleted');
         return res.redirect('back');

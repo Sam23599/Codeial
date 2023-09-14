@@ -1,59 +1,67 @@
-<div id="each-post">
-    <li>
+<div id="post-<%= post.id %>">
+    <li >
+
+        <!-- Show Post data and delete button -->
         <div style="display: flex; justify-content: space-between;">
             <span class="post-content">
                 <%= post.content %>
             </span>
             <% if(locals.user && locals.user.id==post.user.id) {%>
                 <span style="position: relative; right: 5px;">
-                    <a href="/users/destroy/<%= post.id %>"><i
-                            class="fa-solid fa-xmark"></i></a>
+                    <a class="post-delete-button" href="/users/destroy/<%= post.id %>"><i class="fa-solid fa-xmark"></i></a>
                 </span>
                 <% } %>
-
         </div>
-
         <span class="post-user">
             <%= post.user.name %>
         </span>
-    </li>
-    <div class="post-comments">
-        <% if(locals.user){ %>
-            <form action="/comments/create" method="post">
 
-                <input type="text" name="content" id="comment-reply"
-                    placeholder="Type your comment" required>
-                <input type="hidden" name="postID" value="<%= post._id %>">
-                <input type="submit" value="Reply" id="comment-reply-submit">
-            </form>
 
-            <% } %>
-    </div>
-    <div class="post-comments-list">
-        <!-- Not sure how the next line 'ul' works or does that even work? with that #id -->
-        <ul id="post-comments-<%= post._id %>">
-            <% for(comment of post.comments) { %>
-                <li id="comment-tree">
-                    <div style="display: flex; justify-content: space-between;">
-                        <span class="post-content">
-                            <%= comment.content %>
-                        </span>
-                        <% if(locals.user && (locals.user.id == comment.user.id || locals.user.id == post.user.id)) {%>
-                            <span style="position: relative; right: 5px;">
-                                <a href="/comments/destroy/<%= comment.id %>"><i
-                                        class="fa-solid fa-xmark"></i></a>
-                            </span>
-                            <% } %>
-                    </div>
-                    <span class="post-user">
-                        By: <%= comment.user.name %>
-                    </span>
-                </li>
+        <!-- Create Comments -->
+        <div class="post-comments">
+            <% if(locals.user){ %>
+                <form action="/comments/create" method="post" id="new-comment-form">
 
-                <!-- TODO: Add a delete button -->
+                    <input type="text" name="content" id="comment-reply" placeholder="Type your comment" required>
+                    <input type="hidden" name="postID" value="<%= post._id %>">
+                    <input type="submit" value="Reply" id="comment-reply-submit">
+                </form>
                 <% } %>
-        </ul>
+        </div>
 
-    </div>
+
+        <!-- Show Comments List -->
+        <div id="comments-list">
+
+            <!-- This 'ul' requires id for dynamically deleting a comment from DOM -->
+            <ul id="post-comments-<%= post._id %>">
+
+                <% for(comment of post.comments) { %>
+                    <div id="comment-<%= comment.id %>">
+                        <li >
+
+                            <!-- Show comment data and delete button -->
+                            <div style="display: flex; justify-content: space-between;">
+                                <span class="post-content">
+                                    <%= comment.content %>
+                                </span>
+                                <% if(locals.user && (locals.user.id==comment.user.id || locals.user.id==post.user.id)) {%>
+                                    <span style="position: relative; right: 5px;">
+                                        <a class="comment-delete-button" href="/comments/destroy/<%= comment.id %>"><i class="fa-solid fa-xmark"></i></a>
+                                    </span>
+                                    <% } %>
+                            </div>
+                            <span class="post-user">
+                                By: <%= comment.user.name %>
+                            </span>
+                        </li>
+    
+                        <!-- TODO: Add a delete button -->
+                    </div>
+                    <% } %>
+            </ul>
+        </div>
+    </li>
 
 </div>
+.
