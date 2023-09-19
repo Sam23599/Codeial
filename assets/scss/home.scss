@@ -8,11 +8,14 @@
 #container {
     display: flex;
     background-color: #DFCCFB;
-
+    flex-direction: row;
+    height: 100vh;
 
     #feed-posts {
         padding: 6%;
         flex: 7;
+        overflow-y: auto;
+        transition: scroll-behavior 0.5s ease;
 
         h4 {
             margin: 0 0 15px;
@@ -131,6 +134,31 @@
                 }
             }
         }
+
+        .scroll-to-top-button {
+            position: absolute;
+            bottom: 20px;
+            right: 19%;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            cursor: pointer;
+            display: none; /* Initially hide the button */
+        }
+        
+        .scroll-to-top-button:hover {
+            background-color: #0056b3;
+        }
+        
+    }
+
+    #feed-posts::-webkit-scrollbar {
+        // display: none;
+        width: 0.5em;
     }
 
     // ToDo: add styling

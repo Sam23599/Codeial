@@ -5,10 +5,14 @@
 
 #container {
   display: flex;
-  background-color: #DFCCFB; }
+  background-color: #DFCCFB;
+  flex-direction: row;
+  height: 100vh; }
   #container #feed-posts {
     padding: 6%;
-    flex: 7; }
+    flex: 7;
+    overflow-y: auto;
+    transition: scroll-behavior 0.5s ease; }
     #container #feed-posts h4 {
       margin: 0 0 15px; }
     #container #feed-posts #new-post-form {
@@ -85,6 +89,24 @@
             padding: 10px 0; }
             #container #feed-posts #posts-list div[id^="post-"] #comments-list ul div li {
               background-color: rgba(240, 239, 226, 0.8); }
+    #container #feed-posts .scroll-to-top-button {
+      position: absolute;
+      bottom: 20px;
+      right: 19%;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+      cursor: pointer;
+      display: none;
+      /* Initially hide the button */ }
+    #container #feed-posts .scroll-to-top-button:hover {
+      background-color: #0056b3; }
+  #container #feed-posts::-webkit-scrollbar {
+    width: 0.5em; }
   #container #user-friends {
     flex: 1;
     padding: 4%;

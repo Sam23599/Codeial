@@ -1,23 +1,23 @@
 <link rel="stylesheet" href="/css/user.css">
 
 <div id="container">
+    <% if (user.id==profile_user.id) { %>
+        <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100" srcset="">
+        <% } %>
+        
     <h1>
-        We are at the <%= profile_user.name %>'s profile page
+        <%= profile_user.name %>'s profile 
     </h1>
 
-    <!-- how user -->
-    <!-- <p>
-        userid: <%= user %>
-        <br>
-        profileid: <%= profile_user %>
-    </p> -->
+    
 
     <p>
         <% if (user.id==profile_user.id) { %>
             <!-- show form -->
-            <form action="/users/update/<%= profile_user.id %>" method="post">
+            <form action="/users/update/<%= profile_user.id %>" method="post" enctype="multipart/form-data">
                 <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name %>" required>
                 <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email %>" required>
+                <input type="file" name="avatar" id="avatar">
                 <input type="submit" value="Update">
             </form>
 

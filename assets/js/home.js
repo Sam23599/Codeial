@@ -131,3 +131,30 @@ const deleteComment = function(deleteLink){
 
 creatComment();
 createPost();
+
+
+// Function to check scroll position and show/hide button
+
+const scrollToTopButton = document.getElementById('scrollToTopButton');
+const feedPosts = document.getElementById('feed-posts');
+
+function checkScroll() {
+    if (feedPosts.scrollTop > 50) { 
+        scrollToTopButton.style.display = 'block';
+    } else {
+        scrollToTopButton.style.display = 'none';
+    }
+}
+
+function scrollToTop() {
+    feedPosts.style.scrollBehavior = 'smooth';
+    feedPosts.scrollTop = 0;
+
+    feedPosts.addEventListener('scroll', function smoothScrollEnd() {
+        feedPosts.style.scrollBehavior = 'auto';
+        feedPosts.removeEventListener('scroll', smoothScrollEnd);
+    });
+}
+
+feedPosts.addEventListener('scroll', checkScroll);
+scrollToTopButton.addEventListener('click', scrollToTop);

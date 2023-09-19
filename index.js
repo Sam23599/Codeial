@@ -38,17 +38,18 @@ app.set('views', './views');
 // Mongo store is used to store the session cookie in the db
 app.use(session({
     name: 'codeial',
-    // to do change the secret before deployment in prodcution mode
+    // ToDo: change the secret before deployment in prodcution mode
     secret: 'frozenLand',
     saveUninitialized: false,
     resave: false,
     cookie: {
-        maxAge: (1000 * 60 * 60)
+        maxAge: (1000 * 60 )
     },
     store: MongoStore.create({
         mongoUrl: 'mongodb://127.0.0.1:27017/codeial_developement',
         mongooseConnection: db,
-        autoRemove: 'disabled'
+        autoRemove: 'interval',
+        autoRemoveInterval: 60 * 6, 
     },
         function (err) {
             console.log(err || 'connect-mongodb setup ok');;
@@ -66,6 +67,8 @@ app.set('layout extractScripts', true);
 app.use(flash());
 app.use(flashMiddleware.setFlash);
 
+// make upload path availabe for the browser
+app.use('/uploads', express.static(__dirname + '/uploads'));
 // use express router
 app.use('/', require('./routes/index'));
 
