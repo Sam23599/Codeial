@@ -43,13 +43,14 @@ app.use(session({
     saveUninitialized: false,
     resave: false,
     cookie: {
-        maxAge: (1000 * 60 )
+        maxAge: (1000 * 60 *60)            // in seconds
     },
     store: MongoStore.create({
         mongoUrl: 'mongodb://127.0.0.1:27017/codeial_developement',
         mongooseConnection: db,
         autoRemove: 'interval',
-        autoRemoveInterval: 60 * 6, 
+        autoRemoveInterval: 60 * 1,     // in mins
+        touchAfter: 1800                //in seconds
     },
         function (err) {
             console.log(err || 'connect-mongodb setup ok');;
