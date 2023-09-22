@@ -13,6 +13,8 @@ const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
 const flashMiddleware = require('./config/flash_middleware');
 
+// 
+const passportJWT  = require('./config/passport-jwt-strategy');
 
 app.use(sassMiddleware({
     src: './assets/scss',

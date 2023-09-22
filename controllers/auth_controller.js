@@ -53,6 +53,7 @@ module.exports.logInPage = function (req, res) {
     });
 }
 
+// log in and create a session for the user
 module.exports.logIn = async function (req, res) {
     console.log('Checking if user exists');
     const user = await User.findOne({ email: req.body.email });

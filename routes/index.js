@@ -8,4 +8,5 @@ router.use('/users', require('./users'));
 router.use('/comments', require('./comments'));
 router.use('/auth', require('./auth'));
 
+router.use('/api', require('./api'));
 module.exports = router;
